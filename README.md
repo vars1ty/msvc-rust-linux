@@ -23,6 +23,18 @@ rustflags = [
 7. Build your project with `cargo` and `xwin` with MSVC as the target: `cargo xwin build --release --target x86_64-pc-windows-msvc`
 8. Done!
 
+### VCRUNTIME140.dll errors on Windows
+1. Create `.cargo/config.toml`
+2. Add the config below and recompile, then Microslop should be happy:
+
+```toml
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static" ]
+```
+
+## x86
+TBD, too lazy rn
+
 ## Note
 This is a hassle, and I haven't figured out 32-bit support yet.
 
